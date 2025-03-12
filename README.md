@@ -30,6 +30,12 @@ FE Security Study는 **"프런트엔드 개발을 위한 보안 입문"** 책을
 
 ---
 
+## 👨‍👩‍👦 스터디 인원
+
+|                                    [동현/dhyun2](https://github.com/dhyun2)                                     |                                    [도운/devJayve](https://github.com/devJayve)                                     |                                    [용현/yonghyun421](https://github.com/yonghyun421)                                     |                                    [성빈/seongbin9786](https://github.com/seongbin9786)                                     |                                    [화정/hwajj](https://github.com/hwajj)                                     |
+| :-------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
+| [<img src="https://github.com/dhyun2.png" alt="img" height="150px" width="150px" />](https://github.com/dhyun2) | [<img src="https://github.com/devJayve.png" alt="img" height="150px" width="150px" />](https://github.com/devJayve) | [<img src="https://github.com/yonghyun421.png" alt="img" height="150px" width="150px" />](https://github.com/yonghyun421) | [<img src="https://github.com/seongbin9786.png" alt="img" height="150px" width="150px" />](https://github.com/seongbin9786) | [<img src="https://github.com/hwajj.png" alt="img" height="150px" width="150px" />](https://github.com/hwajj) |
+
 ## 🔄 진행 방식
 
 1️⃣ **매주 정해진 범위를 읽고 정리**  
