@@ -207,3 +207,53 @@ fetch('https://example.com', {mode: 'cors'});
 </script>
 ```
 
+## postMessage를 사용해 iframe으로 데이터 전송
+- 일반적으로 iframe 내에서 교차 출처 페이지, 데이터 송수신은 동일 출처 정책에 따라 제한
+- iframe 내 교차 출처 페이지를 신뢰할 수 있을 때 데이터의 송수신이 필요할 때도 있음 → `postMessage` 사용
+```js
+const frame = document.querySelector("iframe");
+frame.contentWindow.postMessage("Hello, World!", frame.src);
+```
+- 수신 측은 아래와 같이 수신 가능
+```js
+window.addEventListener('message', (event) => {
+    // message 전송 측 출처 체크
+  if (event.origin !== "https://bob.blog.example") {
+      // 허가되지 않은 출처에서 message 수신 시 처리 종료
+      return;
+  }
+  alert(`bob의 메시지 : ${event.data}`);
+  
+  // 전송 측 페이지로 메시지도 반환할 수 있음
+  event.source.postMessage("Hello, Bob!");
+})
+```
+
+## 프로세스 분리에 따른 사이드 채널 공격 대책
+- **사이드 채널 공격**: 동일 출처 정책으로는 막을 수 없는 하드웨어(CPU, RAM 등)등에 대한 공격
+
+### Site Isolation
+- Spectre(스펙터): CPU 아키텍처의 취약성을 악용한 공격 방법
+  - 정밀한 타이머로 계속 같은 작업 반복 → 조금씩 메모리 내용 추측
+- Chromium의 프로세스 아키텍처의 경우 사이트라는 단위로 프로세스 분리 → **Site Isolation**
+![img.png](image/img.png)
+- 사이트는 출처가 아닌 **eTLD+1(Effective Top Level Domain + 1)** 단위로 프로세스 분리
+  - eTLD는 .com, .kr등의 TLD뿐만 아니라 co.kr, github.io 등의 도메인 포함
+- **Site Isolation으로 브러우저가 iframe을 통해 다른 사이트의 메모리 데이터에 접근하는 것을 막을 수 O**
+
+### 출처마다 프로세스 분리
+- Site Isolation으로 출처 단위의 사이드 채널 공격은 막을 수 없음
+- **Cross-Origin Isolation**: 출처마다 프로세스를 분리하는 구조
+- Cross-Origin Isolation은 웹 애플리케이션의 개발자가 다음과 같은 방법으로 임의로 활성화 가능
+  1. CORP(Cross-Origin-Resource-Policy)
+  2. COEP(Cross-Origin-Embedder-Policy)
+  3. COOP(Cross-Origin-Opener-Policy)
+
+#### CORP
+- 헤더가 지정된 리소를 가져올 때 동일 출처 혹은 동일 사이트로 제한
+
+#### COEP
+- 페이지의 모든 리소스에 CORP 또는 CORS  헤더의 설정을 강제
+
+#### COOP
+- `<a>`요소와 `window.open` 메서드로 오픈한 교차 출처 페이지의 접근 제한
