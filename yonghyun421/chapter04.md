@@ -79,3 +79,5 @@
 - COOP
   - COOP 헤더를 페이지에 설정하면 a 태그 요소와 `window.open` 함수로 오픈한 교차 출처 페이지의 접근을 제한할 수 있다.
   - COOP를 유효화하려면 Corss-Origin-Opener-Policy 헤더를 페이지의 응답에 추가한다.
+
+[인증과 CORS의 관계](https://blog-ashy-phi.vercel.app/blog/authorization_cors)
