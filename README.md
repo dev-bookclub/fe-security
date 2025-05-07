@@ -1,7 +1,9 @@
 # 🔐 FE Security Study
 
 **📚 프론트엔드 보안 입문 스터디**
+![image](https://github.com/user-attachments/assets/7ee192c5-8e4f-4f33-9174-dcb742098cc4)
 
+👉 [회고](https://velog.io/@parkd/%ED%94%84%EB%9F%B0%ED%8A%B8%EC%97%94%EB%93%9C-%EA%B0%9C%EB%B0%9C%EC%9D%84-%EC%9C%84%ED%95%9C-%EB%B3%B4%EC%95%88-%EC%9E%85%EB%AC%B8-%EC%8A%A4%ED%84%B0%EB%94%94-%ED%9A%8C%EA%B3%A0) 
 ---
 
 ## 📝 개요
